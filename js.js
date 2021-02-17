@@ -22,22 +22,24 @@ generateGrid(gridLength);
 
 function generateGrid(gridLength) {
     pixelPerSquare = 960/gridLength;
-for (i = 0; i <= gridLength; i ++){
-    for (j = 0; j <= gridLength; j ++){
+for (i = 1; i <= gridLength; i ++){
+    for (j = 1; j <= gridLength; j ++){
         newDiv = document.createElement('div');
         newDiv.id = "div" + counter;
         newDiv.style.border = "1px solid";
         newDiv.style.background = "white";
         newDiv.style.width = pixelPerSquare + "px";
         newDiv.style.height = pixelPerSquare + "px";
+                    newDiv.style.cssFloat= "left";
         newDiv.addEventListener('mouseover',function(event){
             event.target.style.background = randomColor();
         });
-        if(counter % (gridLength + 1) != 0){
-            newDiv.style.cssFloat= "left";
+        if(counter % (gridLength) == 1){
+            newDiv.style.clear = "both"
         }
         counter ++;
         container.appendChild(newDiv);
+
     }
 }
 }
